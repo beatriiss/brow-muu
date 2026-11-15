@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#7A1212">
+  <meta name="description" content="Brow Muu · Menu de Natal — Guirlandas e bolos de brownie artesanais feitos à mão em pequenas fornadas. Encomendas de Natal 2026.">
+  <title>Brow Muu · Menu de Natal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fundo: #FBF3E6;
+      --papel: #FFFDF8;
+      --tinta: #231C17;
+      --suave: #7A6C60;
+      --linha: rgba(35,28,23,.12);
+      --vermelho: #7A1212;
+      --vermelho-escuro: #5C0D0D;
+      --terracota: #B5622A;
+      --dourado: #D4AF6A;
+      --whats: #25D366;
+      --raio: 22px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      background: var(--fundo);
+      color: var(--tinta);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    button {
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    input, textarea {
+      font-family: inherit;
+      font-size: 16px;
+      outline: none;
+      border: none;
+      background: none;
+      color: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    textarea { resize: vertical; min-height: 72px; }
+
+    :focus-visible {
+      outline: 2px solid var(--terracota);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ============ ANIMAÇÕES GLOBAIS ============ */
+    @keyframes cintilar {
+      0%, 100% { opacity: .2; transform: scale(.7); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes deslizar-xadrez {
+      from { background-position-x: 0; }
+      to { background-position-x: 200px; }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+      20%, 40%, 60%, 80% { transform: translateX(4px); }
+    }
+
+    @keyframes pulse-barra {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .15s !important;
+        transition-duration: .15s !important;
+      }
+      .estrelinha { animation: none !important; opacity: .7 !important; }
+      .faixa-xadrez { animation: none !important; }
+    }
+
+    /* ============ HEADER ============ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      height: 64px;
+      background: transparent;
+      transition: background .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .header.rolado {
+      background: rgba(122,18,18,.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px -6px rgba(0,0,0,.25);
+    }
+
+    .header .container-header {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+    }
+
+    .logo-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(255,253,248,.5);
+    }
+
+    .logo-header span {
+      font-size: 15px;
+      font-weight: 600;
+      color: #FBF3E6;
+      letter-spacing: .02em;
+    }
+
+    .link-pedido-header {
+      font-size: 14px;
+      font-weight: 500;
+      color: #FBF3E6;
+      padding: 8px 16px;
+      border: 1px solid rgba(251,243,230,.4);
+      border-radius: 999px;
+      transition: background .25s ease, border-color .25s ease;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .link-pedido-header:hover {
+      background: rgba(251,243,230,.12);
+      border-color: rgba(251,243,230,.7);
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      background: var(--vermelho);
+      background-image: radial-gradient(ellipse 60% 40% at 50% 20%, rgba(212,175,106,.22) 0%, transparent 70%);
+      color: #FBF3E6;
+      min-height: 78svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 96px 20px 80px;
+      overflow: hidden;
+    }
+
+    .hero .container-hero {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      font-weight: 500;
+      margin-bottom: 20px;
+      animation: entrada-hero .7s cubic-bezier(.2,.7,.2,1) both;
+      animation-delay: 0ms;
+    }
+
+    .hero-titulo {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(44px, 12vw, 88px);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      animation: entrada-hero .7s cubic-bezier(.2,.7,.2,1) both;
+      animation-delay: 120ms;
+    }
+
+    .hero-titulo em {
+      font-style: italic;
+      color: var(--dourado);
+      font-weight: 400;
+    }
+
+    .hero-paragrafo {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: .85;
+      max-width: 34ch;
+      margin: 24px auto 0;
+      animation: entrada-hero .7s cubic-bezier(.2,.7,.2,1) both;
+      animation-delay: 240ms;
+    }
+
+    .hero-botao {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      padding: 14px 26px;
+      border: 1px solid rgba(251,243,230,.7);
+      border-radius: 999px;
+      color: #FBF3E6;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: .01em;
+      transition: background .25s ease, border-color .25s ease, transform .2s ease;
+      animation: entrada-hero .7s cubic-bezier(.2,.7,.2,1) both;
+      animation-delay: 360ms;
+      min-height: 48px;
+    }
+
+    .hero-botao:hover {
+      background: rgba(251,243,230,.12);
+      border-color: rgba(251,243,230,.9);
+    }
+
+    .hero-botao:active { transform: scale(.97); }
+
+    @keyframes entrada-hero {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .estrela {
+      position: absolute;
+      pointer-events: none;
+      animation: cintilar 4s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .estrela svg {
+      display: block;
+    }
+
+    .estrela-1 { top: 12%; left: 8%; width: 14px; height: 14px; animation-delay: 0s; }
+    .estrela-2 { top: 18%; left: 22%; width: 10px; height: 10px; animation-delay: .8s; }
+    .estrela-3 { top: 10%; right: 12%; width: 18px; height: 18px; animation-delay: 1.6s; }
+    .estrela-4 { top: 30%; right: 6%; width: 12px; height: 12px; animation-delay: 2.4s; }
+    .estrela-5 { top: 55%; left: 4%; width: 16px; height: 16px; animation-delay: 3.2s; }
+    .estrela-6 { top: 60%; right: 10%; width: 11px; height: 11px; animation-delay: 1.2s; }
+    .estrela-7 { top: 40%; left: 18%; width: 9px; height: 9px; animation-delay: 2.8s; }
+    .estrela-8 { top: 75%; left: 10%; width: 13px; height: 13px; animation-delay: .4s; }
+    .estrela-9 { top: 80%; right: 20%; width: 15px; height: 15px; animation-delay: 2.0s; }
+    .estrela-10 { top: 50%; left: 50%; width: 10px; height: 10px; animation-delay: 3.6s; }
+
+    .faixa-xadrez-hero {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background-image: url('assets/xadrez.png');
+      background-repeat: repeat-x;
+      background-size: 200px auto;
+      background-position: 0 30%;
+      animation: deslizar-xadrez 18s linear infinite;
+      z-index: 3;
+    }
+
+    /* ============ COMO PEDIR ============ */
+    .como-pedir {
+      background: var(--fundo);
+      padding: 48px 20px 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .passo {
+      text-align: center;
+      padding: 0 12px;
+      position: relative;
+    }
+
+    .passo + .passo::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--linha);
+    }
+
+    .passo-numero {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 28px;
+      color: var(--terracota);
+      line-height: 1.2;
+    }
+
+    .passo-texto {
+      font-size: 13px;
+      color: var(--tinta);
+      font-weight: 500;
+      margin-top: 4px;
+      letter-spacing: .01em;
+    }
+
+    /* ============ CARDÁPIO ============ */
+    .cardapio {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .produto {
+      padding: 56px 0;
+      border-top: 1px solid var(--linha);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .produto:first-child {
+      border-top: none;
+    }
+
+    @media (min-width: 860px) {
+      .produto {
+        flex-direction: row;
+        align-items: center;
+        gap: 56px;
+      }
+      .produto.reverso {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .produto-palco-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex: 1.1;
+      min-width: 0;
+    }
+
+    .palco {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1 / 1;
+      background: #FFFFFF;
+      border-radius: var(--raio);
+      box-shadow: 0 30px 60px -30px rgba(35,28,23,.35);
+      overflow: hidden;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .palco:focus-visible {
+      outline: 2px solid var(--terracota);
+      outline-offset: 3px;
+    }
+
+    .palco .camada-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6%;
+      background: #FFFFFF;
+      opacity: 0;
+      transition: opacity .52s cubic-bezier(.2,.7,.2,1), transform .52s cubic-bezier(.2,.7,.2,1), filter .52s cubic-bezier(.2,.7,.2,1);
+      will-change: transform, opacity, filter;
+    }
+
+    /* Camada sem foto nunca aparece (evita ícone de imagem quebrada) */
+    .palco .camada-img:not([src]) {
+      visibility: hidden;
+    }
+
+    .etiqueta-palco {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      z-index: 4;
+      background: rgba(255,253,248,.9);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--tinta);
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      max-width: calc(100% - 60px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .etiqueta-palco.saindo-label {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+
+    .contador-palco {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 4;
+      font-size: 12px;
+      color: var(--suave);
+      font-weight: 500;
+      letter-spacing: .05em;
+      background: rgba(255,253,248,.8);
+      padding: 4px 8px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .dots-palco {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 4px;
+      min-height: 12px;
+    }
+
+    .dot-palco {
+      position: relative;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--linha);
+      transition: width .25s ease, background .25s ease;
+      cursor: pointer;
+    }
+
+    .dot-palco::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+    }
+
+    .dot-palco.ativo {
+      width: 18px;
+      background: var(--tinta);
+    }
+
+    .produto-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .produto-eyebrow {
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .produto-nome {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(32px, 8vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .produto-descricao {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--suave);
+      max-width: 40ch;
+      margin-bottom: 24px;
+    }
+
+    .seletor-rotulo {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--tinta);
+      margin-bottom: 12px;
+    }
+
+    .seletor-sabores {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin-bottom: 20px;
+    }
+
+    .seletor-sabores::-webkit-scrollbar {
+      display: none;
+    }
+
+    .opcao-sabor {
+      flex: 0 0 92px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      padding: 0;
+      min-height: 110px;
+      transition: transform .2s ease;
+    }
+
+    .opcao-miniatura {
+      width: 76px;
+      height: 76px;
+      border-radius: 16px;
+      background: #FFFFFF;
+      object-fit: contain;
+      padding: 6px;
+      border: 1.5px solid transparent;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+      box-shadow: 0 2px 8px -2px rgba(35,28,23,.08);
+    }
+
+    .opcao-nome {
+      font-size: 12.5px;
+      line-height: 1.3;
+      font-weight: 500;
+      color: var(--tinta);
+      text-align: center;
+      margin-top: 6px;
+      max-width: 92px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: font-weight .2s ease;
+    }
+
+    .opcao-preco {
+      font-size: 12px;
+      color: var(--suave);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .opcao-sabor.selecionado .opcao-miniatura {
+      border-color: var(--tinta);
+      box-shadow: 0 8px 16px -4px rgba(35,28,23,.2);
+      transform: translateY(-2px);
+    }
+
+    .opcao-sabor.selecionado .opcao-nome {
+      font-weight: 600;
+    }
+
+    .opcao-sabor:active { transform: scale(.96); }
+
+    @media (min-width: 860px) {
+      .seletor-sabores {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        scroll-snap-type: none;
+      }
+      .opcao-sabor {
+        flex: 0 0 92px;
+      }
+    }
+
+    .linha-preco {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      min-height: 44px;
+    }
+
+    .preco-atual {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .linha-acao {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--linha);
+      border-radius: 999px;
+      height: 54px;
+      flex-shrink: 0;
+      background: var(--papel);
+    }
+
+    .botao-stepper {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background .2s ease;
+      min-width: 44px;
+      min-height: 44px;
+      flex-shrink: 0;
+    }
+
+    .botao-stepper:hover {
+      background: rgba(35,28,23,.06);
+    }
+
+    .botao-stepper:active { transform: scale(.94); }
+
+    .quantidade-stepper {
+      font-size: 16px;
+      font-weight: 600;
+      min-width: 28px;
+      text-align: center;
+      line-height: 1;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .botao-adicionar {
+      flex: 1;
+      height: 54px;
+      border-radius: 999px;
+      background: var(--tinta);
+      color: var(--papel);
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background .3s ease, transform .15s ease;
+      white-space: nowrap;
+      padding: 0 16px;
+      min-width: 0;
+    }
+
+    .botao-adicionar:active { transform: scale(.97); }
+
+    .botao-adicionar.adicionado {
+      background: var(--terracota);
+    }
+
+    .botao-adicionar .icone-botao {
+      display: inline-flex;
+      align-items: center;
+      transition: opacity .2s ease;
+    }
+
+    .botao-adicionar .texto-botao {
+      transition: opacity .2s ease;
+    }
+
+    .botao-adicionar .texto-botao.trocando {
+      opacity: 0;
+    }
+
+    @media (max-width: 380px) {
+      .linha-acao { gap: 8px; }
+      .botao-adicionar { padding: 0 10px; font-size: 14px; }
+      .stepper { height: 50px; }
+      .botao-stepper { width: 40px; height: 40px; min-width: 40px; min-height: 40px; }
+      .quantidade-stepper { min-width: 22px; }
+    }
+
+    /* ============ BARRA DE PEDIDO ============ */
+    .barra-pedido {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: calc(12px + env(safe-area-inset-bottom));
+      max-width: 560px;
+      margin: 0 auto;
+      z-index: 50;
+      background: var(--tinta);
+      color: var(--papel);
+      border-radius: 18px;
+      padding: 12px 12px 12px 20px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,.45);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transform: translateY(140%);
+      transition: transform .45s cubic-bezier(.2,.9,.3,1.2), opacity .3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .barra-pedido.visivel {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .barra-pedido.pulse {
+      animation: pulse-barra .45s cubic-bezier(.2,.9,.3,1.2);
+    }
+
+    .barra-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+      min-width: 0;
+    }
+
+    .barra-itens {
+      font-size: 12px;
+      opacity: .7;
+      font-weight: 500;
+    }
+
+    .barra-total {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .barra-botao {
+      background: var(--papel);
+      color: var(--tinta);
+      border-radius: 12px;
+      height: 44px;
+      padding: 0 18px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      transition: background .25s ease, transform .15s ease;
+      min-height: 44px;
+    }
+
+    .barra-botao:active { transform: scale(.97); }
+
+    .barra-botao:hover { background: #EFEBE0; }
+
+    /* ============ OVERLAY E PAINEL ============ */
+    .overlay-pedido {
+      position: fixed;
+      inset: 0;
+      background: rgba(35,28,23,.45);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 60;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    .overlay-pedido.visivel {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .painel-pedido {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-height: 92dvh;
+      background: var(--papel);
+      border-radius: 24px 24px 0 0;
+      z-index: 61;
+      transform: translateY(100%);
+      transition: transform .42s cubic-bezier(.2,.8,.2,1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 -20px 60px -20px rgba(0,0,0,.35);
+    }
+
+    .painel-pedido.aberto {
+      transform: translateY(0);
+    }
+
+    @media (min-width: 768px) {
+      .painel-pedido {
+        left: auto;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 440px;
+        max-height: 100dvh;
+        height: 100dvh;
+        border-radius: 24px 0 0 24px;
+        transform: translateX(100%);
+        transition: transform .42s cubic-bezier(.2,.8,.2,1);
+      }
+      .painel-pedido.aberto {
+        transform: translateX(0);
+      }
+    }
+
+    .alca-painel {
+      width: 36px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--linha);
+      margin: 12px auto 4px;
+      flex-shrink: 0;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    @media (min-width: 768px) {
+      .alca-painel { display: none; }
+    }
+
+    .cabecalho-painel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 20px 12px;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .titulo-painel {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      outline: none;
+    }
+
+    .botao-fechar-painel {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background .2s ease;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    .botao-fechar-painel:hover {
+      background: rgba(35,28,23,.06);
+    }
+
+    .conteudo-painel {
+      flex: 1;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .conteudo-painel::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .conteudo-painel::-webkit-scrollbar-thumb {
+      background: var(--linha);
+      border-radius: 999px;
+    }
+
+    .itens-pedido {
+      margin-bottom: 20px;
+    }
+
+    .item-pedido {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--linha);
+      animation: item-aparece .3s ease both;
+    }
+
+    @keyframes item-aparece {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    .item-pedido-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      object-fit: contain;
+      padding: 4px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    }
+
+    .item-pedido-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-pedido-produto {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .item-pedido-sabor {
+      font-size: 13px;
+      color: var(--suave);
+      margin-top: 2px;
+    }
+
+    .item-pedido-preco {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 16px;
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+
+    .item-pedido-controles {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .stepper-compacto {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--linha);
+      border-radius: 999px;
+      height: 36px;
+      background: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .stepper-compacto .botao-stepper {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+
+    .stepper-compacto .quantidade-stepper {
+      font-size: 14px;
+      min-width: 22px;
+    }
+
+    .botao-remover-item {
+      font-size: 13px;
+      color: var(--suave);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 0.5px;
+      padding: 4px 8px;
+      min-height: 32px;
+      transition: color .2s ease;
+    }
+
+    .botao-remover-item:hover {
+      color: var(--vermelho);
+    }
+
+    .totais-pedido {
+      border-top: 1px solid var(--linha);
+      padding: 16px 0;
+    }
+
+    .linha-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      font-size: 14px;
+      color: var(--suave);
+    }
+
+    .linha-total.valor-grande {
+      font-size: 22px;
+      color: var(--tinta);
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      padding-top: 8px;
+      border-top: 1px solid var(--linha);
+      margin-top: 8px;
+    }
+
+    .linha-total.valor-grande span:first-child {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--suave);
+    }
+
+    .form-pedido {
+      margin-top: 20px;
+    }
+
+    .form-titulo {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--tinta);
+      margin-bottom: 16px;
+    }
+
+    .campo-form {
+      margin-bottom: 16px;
+    }
+
+    .campo-form label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--tinta);
+    }
+
+    .campo-form input,
+    .campo-form textarea {
+      width: 100%;
+      border: 1.5px solid var(--linha);
+      border-radius: 14px;
+      background: #FFFFFF;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: var(--tinta);
+      transition: border-color .2s ease, box-shadow .2s ease;
+      min-height: 52px;
+    }
+
+    .campo-form textarea {
+      min-height: 72px;
+      resize: vertical;
+    }
+
+    .campo-form input:focus,
+    .campo-form textarea:focus {
+      border-color: var(--terracota);
+      box-shadow: 0 0 0 4px rgba(181,98,42,.15);
+      outline: none;
+    }
+
+    .campo-form input.invalido,
+    .campo-form textarea.invalido {
+      border-color: var(--vermelho);
+      animation: shake .3s ease;
+    }
+
+    .campo-erro {
+      font-size: 12.5px;
+      color: var(--vermelho);
+      margin-top: 4px;
+      min-height: 16px;
+      display: none;
+    }
+
+    .campo-erro.visivel {
+      display: block;
+      animation: shake .3s ease;
+    }
+
+    .controle-segmentado {
+      position: relative;
+      display: flex;
+      background: rgba(35,28,23,.06);
+      border-radius: 999px;
+      padding: 3px;
+      height: 52px;
+      margin-bottom: 4px;
+    }
+
+    .indicador-segmento {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
+      width: calc(50% - 3px);
+      border-radius: 999px;
+      background: var(--tinta);
+      transition: transform .3s cubic-bezier(.2,.8,.2,1);
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      pointer-events: none;
+    }
+
+    .controle-segmentado.entrega .indicador-segmento {
+      transform: translateX(100%);
+    }
+
+    .opcao-segmento {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--tinta);
+      border-radius: 999px;
+      position: relative;
+      z-index: 1;
+      transition: color .2s ease;
+      min-height: 44px;
+    }
+
+    .opcao-segmento.ativo {
+      color: var(--papel);
+      font-weight: 600;
+    }
+
+    .campo-condicional {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s ease, opacity .3s ease;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .campo-condicional.aberto {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    .campo-condicional .conteudo-condicional {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .campo-condicional .campo-form {
+      margin-bottom: 16px;
+      padding-top: 0;
+    }
+
+    .rodape-painel {
+      flex-shrink: 0;
+      padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--linha);
+      background: var(--papel);
+    }
+
+    .botao-whatsapp {
+      width: 100%;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--whats);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .25s ease, transform .15s ease, opacity .25s ease;
+      min-height: 56px;
+    }
+
+    .botao-whatsapp:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    .botao-whatsapp:not(:disabled):active { transform: scale(.97); }
+
+    .botao-whatsapp:hover:not(:disabled) { background: #1EBE54; }
+
+    .texto-rodape-painel {
+      font-size: 12px;
+      color: var(--suave);
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    .botao-limpar {
+      display: block;
+      margin: 8px auto 0;
+      font-size: 13px;
+      color: var(--suave);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 0.5px;
+      padding: 4px 8px;
+      min-height: 32px;
+      transition: color .2s ease;
+    }
+
+    .botao-limpar:hover {
+      color: var(--vermelho);
+    }
+
+    .estado-vazio-painel {
+      text-align: center;
+      padding: 32px 20px;
+      display: none;
+    }
+
+    .estado-vazio-painel.visivel {
+      display: block;
+    }
+
+    .estado-vazio-icone {
+      margin: 0 auto 16px;
+      color: var(--suave);
+      opacity: .7;
+    }
+
+    .estado-vazio-titulo {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--tinta);
+      margin-bottom: 16px;
+    }
+
+    .botao-ver-cardapio {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: 1px solid var(--tinta);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--tinta);
+      transition: background .2s ease;
+      min-height: 44px;
+    }
+
+    .botao-ver-cardapio:hover {
+      background: rgba(35,28,23,.06);
+    }
+
+    /* ============ TOAST ============ */
+    .toast {
+      position: fixed;
+      bottom: calc(80px + env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--tinta);
+      color: var(--papel);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 12px 32px -8px rgba(0,0,0,.35);
+      z-index: 70;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease, transform .3s ease;
+      max-width: calc(100vw - 40px);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toast.visivel {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: none;
+    }
+
+    /* ============ RODAPÉ ============ */
+    .rodape {
+      background: var(--vermelho);
+      color: #FBF3E6;
+      padding: 0 20px calc(130px + env(safe-area-inset-bottom));
+      text-align: center;
+      position: relative;
+    }
+
+    .faixa-xadrez-rodape {
+      height: 40px;
+      background-image: url('assets/xadrez.png');
+      background-repeat: repeat-x;
+      background-size: 200px auto;
+      background-position: 0 30%;
+      animation: deslizar-xadrez 18s linear infinite;
+      margin-bottom: 32px;
+    }
+
+    .logo-rodape {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(212,175,106,.6);
+      margin: 0 auto 16px;
+    }
+
+    .rodape-nome {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .rodape-descricao {
+      font-size: 13px;
+      opacity: .7;
+      margin-bottom: 12px;
+    }
+
+    .rodape-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #FBF3E6;
+      padding: 8px 16px;
+      border: 1px solid rgba(251,243,230,.3);
+      border-radius: 999px;
+      transition: background .2s ease, border-color .2s ease;
+      min-height: 44px;
+      margin-bottom: 20px;
+    }
+
+    .rodape-link:hover {
+      background: rgba(251,243,230,.12);
+      border-color: rgba(251,243,230,.6);
+    }
+
+    .rodape-copyright {
+      font-size: 12px;
+      opacity: .5;
+    }
+
+    /* ============ REVEAL ============ */
+    [data-revelar] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    [data-revelar].visivel {
+      opacity: 1;
+      transform: none;
+    }
+
+    [data-revelar] > [style*="--d"] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+      transition-delay: var(--d, 0ms);
+    }
+
+    [data-revelar].visivel > [style*="--d"] {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ============ UTILITÁRIOS ============ */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container-header">
+      <a href="#" class="logo-header" aria-label="Brow Muu — Início">
+        <img src="assets/logo.png" alt="Logo Brow Muu" width="40" height="40" loading="eager">
+        <span>Brow Muu</span>
+      </a>
+      <a href="#cardapio" class="link-pedido-header" id="link-pedido-header">Fazer pedido</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="container-hero">
+      <p class="hero-eyebrow">Encomendas de Natal · 2026</p>
+      <h1 class="hero-titulo">Menu de<br><em>Natal</em></h1>
+      <p class="hero-paragrafo">Guirlandas e bolos de brownie feitos à mão, em pequenas fornadas, para deixar sua mesa de Natal mais doce.</p>
+      <a href="#cardapio" class="hero-botao" id="botao-ver-cardapio">
+        Ver o cardápio
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+
+    <!-- Estrelinhas decorativas -->
+    <div class="estrela estrela-1" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-2" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-3" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-4" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-5" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-6" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-7" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-8" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-9" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+    <div class="estrela estrela-10" aria-hidden="true"><svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"><path d="M10 0 L12.8 7.2 L20 10 L12.8 12.8 L10 20 L7.2 12.8 L0 10 L7.2 7.2 Z" fill="var(--dourado)"/></svg></div>
+
+    <div class="faixa-xadrez-hero" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============ COMO PEDIR ============ -->
+  <section class="como-pedir" id="como-pedir" data-revelar>
+    <div class="passo" style="--d:0ms;">
+      <div class="passo-numero">1</div>
+      <div class="passo-texto">Escolha sabores</div>
+    </div>
+    <div class="passo" style="--d:120ms;">
+      <div class="passo-numero">2</div>
+      <div class="passo-texto">Informe a data</div>
+    </div>
+    <div class="passo" style="--d:240ms;">
+      <div class="passo-numero">3</div>
+      <div class="passo-texto">Envie no WhatsApp</div>
+    </div>
+  </section>
+
+  <!-- ============ CARDÁPIO ============ -->
+  <main class="cardapio" id="cardapio">
+    <!-- Renderizado via JS -->
+  </main>
+
+  <!-- ============ BARRA DE PEDIDO ============ -->
+  <div class="barra-pedido" id="barra-pedido" role="region" aria-label="Resumo do pedido" aria-live="polite">
+    <div class="barra-info">
+      <span class="barra-itens" id="barra-itens">0 itens</span>
+      <span class="barra-total" id="barra-total">R$ 0,00</span>
+    </div>
+    <button class="barra-botao" id="botao-ver-pedido" aria-label="Abrir painel do pedido">
+      Ver pedido
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- ============ OVERLAY E PAINEL ============ -->
+  <div class="overlay-pedido" id="overlay-pedido"></div>
+
+  <div class="painel-pedido" id="painel-pedido" role="dialog" aria-modal="true" aria-label="Seu pedido">
+    <div class="alca-painel" id="alca-painel" aria-hidden="true"></div>
+    <div class="cabecalho-painel">
+      <h2 class="titulo-painel" id="titulo-painel" tabindex="-1">Seu pedido</h2>
+      <button class="botao-fechar-painel" id="botao-fechar-painel" aria-label="Fechar painel do pedido">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tinta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="conteudo-painel" id="conteudo-painel">
+      <div class="estado-vazio-painel" id="estado-vazio-painel">
+        <div class="estado-vazio-icone" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1M4 7h16l-1.5 14h-13L4 7z"/><path d="M9 11v3M15 11v3"/></svg>
+        </div>
+        <h3 class="estado-vazio-titulo">Seu pedido está vazio</h3>
+        <button class="botao-ver-cardapio" id="botao-ver-cardapio-vazio">
+          Ver o cardápio
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+      </div>
+      <div id="itens-pedido" class="itens-pedido"></div>
+      <div id="totais-pedido" class="totais-pedido"></div>
+      <div class="form-pedido" id="form-pedido">
+        <h3 class="form-titulo">Dados para o pedido</h3>
+        <div class="campo-form">
+          <label for="campo-nome">Nome*</label>
+          <input type="text" id="campo-nome" name="nome" autocomplete="name" required placeholder="Seu nome completo">
+          <p class="campo-erro" id="erro-nome">Informe seu nome.</p>
+        </div>
+        <div class="campo-form">
+          <label for="campo-data">Data desejada*</label>
+          <input type="date" id="campo-data" name="data" required>
+          <p class="campo-erro" id="erro-data">Escolha uma data válida.</p>
+        </div>
+        <div class="campo-form">
+          <label>Recebimento</label>
+          <div class="controle-segmentado" id="controle-recebimento" role="radiogroup">
+            <div class="indicador-segmento" aria-hidden="true"></div>
+            <button class="opcao-segmento ativo" role="radio" aria-checked="true" data-valor="retirada" id="btn-retirada">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
+              Retirada
+            </button>
+            <button class="opcao-segmento" role="radio" aria-checked="false" data-valor="entrega" id="btn-entrega">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4h14v11H1zM15 9h4l3 3v3h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+              Entrega
+            </button>
+          </div>
+        </div>
+        <div class="campo-condicional" id="campo-endereco-condicional">
+          <div class="conteudo-condicional">
+            <div class="campo-form">
+              <label for="campo-endereco">Endereço*</label>
+              <textarea id="campo-endereco" name="endereco" placeholder="Rua, número, bairro, complemento"></textarea>
+              <p class="campo-erro" id="erro-endereco">Informe o endereço de entrega.</p>
+            </div>
+          </div>
+        </div>
+        <div class="campo-form">
+          <label for="campo-observacoes">Observações</label>
+          <textarea id="campo-observacoes" name="observacoes" placeholder="Ex.: mensagem no cartão, horário preferido…"></textarea>
+          <p class="campo-erro" id="erro-observacoes"></p>
+        </div>
+      </div>
+    </div>
+    <div class="rodape-painel">
+      <button class="botao-whatsapp" id="botao-enviar-whatsapp" disabled>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.56 2 2.1 6.46 2.1 11.94c0 1.77.47 3.5 1.37 5.03L2 22l5.18-1.36a9.94 9.94 0 0 0 4.86 1.24c5.48 0 9.94-4.46 9.94-9.94S17.52 2 12.04 2zm0 18.12c-1.52 0-3-.41-4.3-1.18l-.31-.18-3.07.8.82-3-.2-.32a8.16 8.16 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.25-.84.82-.84 2.01 0 1.19.87 2.35.99 2.51.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.1.15 1.51.09.46-.07 1.47-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.16-.48-.28z"/></svg>
+        Enviar pedido no WhatsApp
+      </button>
+      <p class="texto-rodape-painel">Você será direcionado ao WhatsApp para confirmar o pedido.</p>
+      <button class="botao-limpar" id="botao-limpar-pedido">Limpar pedido</button>
+    </div>
+  </div>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast" id="toast" role="status" aria-live="polite">Pedido pronto! Finalize o envio no WhatsApp.</div>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="faixa-xadrez-rodape" aria-hidden="true"></div>
+    <img src="assets/logo.png" alt="Logo Brow Muu" class="logo-rodape" width="64" height="64" loading="lazy">
+    <h2 class="rodape-nome">Brow Muu</h2>
+    <p class="rodape-descricao">Brownies artesanais · Salvador, BA</p>
+    <a href="https://wa.me/557191806072" class="rodape-link" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.56 2 2.1 6.46 2.1 11.94c0 1.77.47 3.5 1.37 5.03L2 22l5.18-1.36a9.94 9.94 0 0 0 4.86 1.24c5.48 0 9.94-4.46 9.94-9.94S17.52 2 12.04 2zm0 18.12c-1.52 0-3-.41-4.3-1.18l-.31-.18-3.07.8.82-3-.2-.32a8.16 8.16 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.25-.84.82-.84 2.01 0 1.19.87 2.35.99 2.51.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.1.15 1.51.09.46-.07 1.47-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.11-.22-.16-.48-.28z"/></svg>
+      (71) 9180-6072
+    </a>
+    <p class="rodape-copyright">© 2026 Brow Muu</p>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+
+      /* ============ DADOS ============ */
+      const WHATSAPP = '557191806072';
+      const PRODUTOS = [
+        {
+          id: 'guirlanda',
+          nome: 'Guirlanda de Brownie',
+          rotulo: '01 — Guirlanda',
+          descricao: 'Brownie em formato de guirlanda, coberto com confeitos de bico e finalizado com laço natalino. Perfeita como centro da mesa.',
+          sabores: [
+            { id: 'ninho-nutella', nome: 'Ninho com Nutella', preco: 120, img: 'assets/guirlanda-ninho-nutella.jpg', w: 1039, h: 1024 },
+            { id: 'maracuja', nome: 'Maracujá', preco: 100, img: 'assets/guirlanda-maracuja.jpg', w: 1024, h: 1024 },
+            { id: 'chocolate-50', nome: 'Chocolate 50%', preco: 100, img: 'assets/guirlanda-chocolate.jpg', w: 1024, h: 1024 },
+            { id: 'doce-de-leite', nome: 'Doce de Leite', preco: 100, img: 'assets/guirlanda-doce-de-leite.jpg', w: 1024, h: 1024 }
+          ]
+        },
+        {
+          id: 'bolo',
+          nome: 'Bolo Brownie',
+          rotulo: '02 — Bolo',
+          descricao: 'Três camadas de brownie macio intercaladas com recheio generoso. Feito sob encomenda.',
+          sabores: [
+            { id: 'maracuja', nome: 'Maracujá', preco: 130, img: 'assets/bolo-maracuja.png', w: 1422, h: 1106 },
+            { id: 'doce-de-leite', nome: 'Doce de Leite', preco: 130, img: 'assets/bolo-doce-de-leite.jpg', w: 1184, h: 911 },
+            { id: 'ninho-morango', nome: 'Ninho com Morango', preco: 130, img: 'assets/bolo-ninho-morango.jpg', w: 1184, h: 911 }
+          ]
+        }
+      ];
+
+      /* ============ UTILITÁRIOS ============ */
+      const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+      const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+
+      function formatBRL(valor) {
+        return valor.toFixed(2).replace('.', ',');
+      }
+
+      function formatPreco(valor) {
+        return 'R$ ' + formatBRL(valor);
+      }
+
+      function salvarLS(chave, dados) {
+        try {
+          localStorage.setItem(chave, JSON.stringify(dados));
+        } catch (e) { /* ignora */ }
+      }
+
+      function carregarLS(chave) {
+        try {
+          const raw = localStorage.getItem(chave);
+          return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function hojeLocal() {
+        const d = new Date();
+        const ano = d.getFullYear();
+        const mes = String(d.getMonth() + 1).padStart(2, '0');
+        const dia = String(d.getDate()).padStart(2, '0');
+        return ano + '-' + mes + '-' + dia;
+      }
+
+      function obterSabor(produtoId, saborId) {
+        const prod = PRODUTOS.find(p => p.id === produtoId);
+        if (!prod) return null;
+        return prod.sabores.find(s => s.id === saborId) || null;
+      }
+
+      function obterProduto(produtoId) {
+        return PRODUTOS.find(p => p.id === produtoId) || null;
+      }
+
+      /* ============ ESTADO ============ */
+      let pedido = [];
+      let dadosForm = {};
+      let painelAberto = false;
+      let scrollYAnterior = 0;
+      let toastTimer = null;
+
+      /* ============ CARREGAR PEDIDO E DADOS DO LS ============ */
+      (function carregarEstado() {
+        const pedidoSalvo = carregarLS('browmuu:pedido');
+        if (Array.isArray(pedidoSalvo)) {
+          pedido = pedidoSalvo.filter(item => {
+            return obterProduto(item.produtoId) && obterSabor(item.produtoId, item.saborId);
+          }).map(item => ({ ...item }));
+        }
+        const dadosSalvos = carregarLS('browmuu:dados');
+        if (dadosSalvos && typeof dadosSalvos === 'object') {
+          dadosForm = dadosSalvos;
+        }
+      })();
+
+      function persistirPedido() {
+        salvarLS('browmuu:pedido', pedido);
+      }
+
+      function persistirDados() {
+        salvarLS('browmuu:dados', dadosForm);
+      }
+
+      /* ============ ÍCONES SVG ============ */
+      const ICONES = {
+        menos: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>',
+        mais: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+        check: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>'
+      };
+
+      /* ============ DOM ESTÁTICO ============ */
+      const header = $('#header');
+      const linkPedidoHeader = $('#link-pedido-header');
+      const botaoVerCardapioHero = $('#botao-ver-cardapio');
+      const cardapio = $('#cardapio');
+      const barraPedido = $('#barra-pedido');
+      const barraItens = $('#barra-itens');
+      const barraTotal = $('#barra-total');
+      const botaoVerPedido = $('#botao-ver-pedido');
+      const overlayPedido = $('#overlay-pedido');
+      const painelPedido = $('#painel-pedido');
+      const tituloPainel = $('#titulo-painel');
+      const botaoFecharPainel = $('#botao-fechar-painel');
+      const alcaPainel = $('#alca-painel');
+      const conteudoPainel = $('#conteudo-painel');
+      const estadoVazioPainel = $('#estado-vazio-painel');
+      const itensPedido = $('#itens-pedido');
+      const totaisPedido = $('#totais-pedido');
+      const formPedido = $('#form-pedido');
+      const campoNome = $('#campo-nome');
+      const campoData = $('#campo-data');
+      const campoEndereco = $('#campo-endereco');
+      const campoObservacoes = $('#campo-observacoes');
+      const controleRecebimento = $('#controle-recebimento');
+      const btnRetirada = $('#btn-retirada');
+      const btnEntrega = $('#btn-entrega');
+      const campoEnderecoCondicional = $('#campo-endereco-condicional');
+      const botaoEnviarWhatsapp = $('#botao-enviar-whatsapp');
+      const botaoLimparPedido = $('#botao-limpar-pedido');
+      const botaoVerCardapioVazio = $('#botao-ver-cardapio-vazio');
+      const toast = $('#toast');
+      const erroNome = $('#erro-nome');
+      const erroData = $('#erro-data');
+      const erroEndereco = $('#erro-endereco');
+      const erroObservacoes = $('#erro-observacoes');
+
+      // Define a data mínima
+      campoData.min = hojeLocal();
+
+      // Preenche o formulário com dados salvos
+      (function preencherForm() {
+        if (dadosForm.nome) campoNome.value = dadosForm.nome;
+        if (dadosForm.data) campoData.value = dadosForm.data;
+        if (dadosForm.endereco) campoEndereco.value = dadosForm.endereco;
+        if (dadosForm.observacoes) campoObservacoes.value = dadosForm.observacoes;
+        if (dadosForm.recebimento === 'entrega') {
+          ativarRecebimento('entrega', false);
+        } else {
+          ativarRecebimento('retirada', false);
+        }
+      })();
+
+      /* ============ HEADER SCROLL ============ */
+      (function configurarHeader() {
+        let ticking = false;
+        function atualizarHeader() {
+          const rolou = window.scrollY > 40;
+          header.classList.toggle('rolado', rolou);
+          ticking = false;
+        }
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(atualizarHeader);
+          }
+        }, { passive: true });
+        atualizarHeader();
+      })();
+
+      /* ============ SCROLL SUAVE ============ */
+      function rolarSuavePara(target) {
+        const el = $(target);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      linkPedidoHeader.addEventListener('click', function(e) {
+        e.preventDefault();
+        rolarSuavePara('#cardapio');
+      });
+
+      botaoVerCardapioHero.addEventListener('click', function(e) {
+        e.preventDefault();
+        rolarSuavePara('#cardapio');
+      });
+
+      botaoVerCardapioVazio.addEventListener('click', function(e) {
+        e.preventDefault();
+        fecharPainel();
+        setTimeout(function() {
+          rolarSuavePara('#cardapio');
+        }, 300);
+      });
+
+      /* ============ PRELOAD DAS IMAGENS ============ */
+      (function preCarregarImagens() {
+        PRODUTOS.forEach(function(produto) {
+          produto.sabores.forEach(function(sabor) {
+            const img = new Image();
+            img.src = sabor.img;
+            img.onload = function() { /* carregada */ };
+            img.onerror = function() { /* erro silencioso */ };
+          });
+        });
+      })();
+
+      /* ============ RENDERIZAR CARDÁPIO ============ */
+      function criarProduto(produto, indice) {
+        const section = document.createElement('section');
+        section.className = 'produto' + (indice % 2 !== 0 ? ' reverso' : '');
+        section.dataset.revelar = '';
+
+        section.innerHTML = '' +
+          '<div class="produto-palco-wrapper">' +
+            '<div class="palco" tabindex="0" role="group" aria-label="Troca de sabores do ' + produto.nome + '">' +
+              '<img class="camada-img img-a" alt="' + produto.nome + ' sabor ' + produto.sabores[0].nome + '" width="' + produto.sabores[0].w + '" height="' + produto.sabores[0].h + '" loading="' + (indice === 0 ? 'eager' : 'lazy') + '" style="opacity:1">' +
+              '<img class="camada-img img-b" alt="" width="' + produto.sabores[0].w + '" height="' + produto.sabores[0].h + '" loading="eager" style="opacity:0">' +
+              '<div class="etiqueta-palco" role="status" aria-live="polite">' + produto.sabores[0].nome + '</div>' +
+              '<div class="contador-palco">1/' + produto.sabores.length + '</div>' +
+            '</div>' +
+            '<div class="dots-palco" role="tablist" aria-label="Indicadores de sabor"></div>' +
+          '</div>' +
+          '<div class="produto-info">' +
+            '<p class="produto-eyebrow">' + produto.rotulo + '</p>' +
+            '<h2 class="produto-nome">' + produto.nome + '</h2>' +
+            '<p class="produto-descricao">' + produto.descricao + '</p>' +
+            '<p class="seletor-rotulo">Escolha o sabor</p>' +
+            '<div class="seletor-sabores" role="group" aria-label="Sabores disponíveis"></div>' +
+            '<div class="linha-preco">' +
+              '<span class="preco-atual" aria-live="polite">' + formatPreco(produto.sabores[0].preco) + '</span>' +
+            '</div>' +
+            '<div class="linha-acao">' +
+              '<div class="stepper">' +
+                '<button class="botao-stepper botao-menos" aria-label="Diminuir quantidade">' + ICONES.menos + '</button>' +
+                '<span class="quantidade-stepper" aria-live="polite">1</span>' +
+                '<button class="botao-stepper botao-mais" aria-label="Aumentar quantidade">' + ICONES.mais + '</button>' +
+              '</div>' +
+              '<button class="botao-adicionar" aria-label="Adicionar ao pedido">' +
+                '<span class="icone-botao"></span>' +
+                '<span class="texto-botao">Adicionar ao pedido</span>' +
+              '</button>' +
+            '</div>' +
+          '</div>';
+
+        return section;
+      }
+
+      function renderizarCardapio() {
+        cardapio.innerHTML = '';
+        PRODUTOS.forEach(function(produto, indice) {
+          const secao = criarProduto(produto, indice);
+          cardapio.appendChild(secao);
+        });
+        // Após renderizar, inicializa os comportamentos de cada produto
+        $$('.produto', cardapio).forEach(function(secaoProduto, indice) {
+          inicializarProduto(secaoProduto, PRODUTOS[indice]);
+        });
+        // Observa os data-revelar recém-criados
+        configurarReveal();
+        // Atualiza a barra de pedido
+        atualizarBarraPedido();
+      }
+
+      /* ============ INICIALIZAR CADA PRODUTO ============ */
+      function inicializarProduto(secaoProduto, produto) {
+        const palco = $('.palco', secaoProduto);
+        const imgA = $('.img-a', palco);
+        const imgB = $('.img-b', palco);
+        const etiqueta = $('.etiqueta-palco', palco);
+        const contador = $('.contador-palco', palco);
+        const dotsContainer = $('.dots-palco', secaoProduto);
+        const seletor = $('.seletor-sabores', secaoProduto);
+        const precoEl = $('.preco-atual', secaoProduto);
+        const botaoMenos = $('.botao-menos', secaoProduto);
+        const botaoMais = $('.botao-mais', secaoProduto);
+        const quantidadeEl = $('.quantidade-stepper', secaoProduto);
+        const botaoAdicionar = $('.botao-adicionar', secaoProduto);
+
+        if (!produto) return;
+
+        let saborAtualIdx = 0;
+        let quantidade = 1;
+        let imagemAtiva = 'a'; // 'a' ou 'b'
+        let animacaoEmAndamento = false;
+        let pedidoPendente = null;
+        let timerAdicionado = null;
+
+        // Configura dots
+        produto.sabores.forEach(function(_, idx) {
+          const dot = document.createElement('span');
+          dot.className = 'dot-palco' + (idx === saborAtualIdx ? ' ativo' : '');
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Sabor ' + (idx + 1) + ': ' + produto.sabores[idx].nome);
+          dot.setAttribute('tabindex', '0');
+          dot.addEventListener('click', function() { selecionarSabor(idx); });
+          dot.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selecionarSabor(idx);
+            }
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        // Configura seletor de sabores
+        produto.sabores.forEach(function(sabor, idx) {
+          const btn = document.createElement('button');
+          btn.className = 'opcao-sabor' + (idx === saborAtualIdx ? ' selecionado' : '');
+          btn.setAttribute('aria-pressed', idx === saborAtualIdx ? 'true' : 'false');
+          btn.setAttribute('type', 'button');
+          btn.innerHTML = '' +
+            '<img class="opcao-miniatura" src="' + sabor.img + '" alt="' + produto.nome + ' sabor ' + sabor.nome + '" width="76" height="76" loading="lazy">' +
+            '<span class="opcao-nome">' + sabor.nome + '</span>' +
+            '<span class="opcao-preco">' + formatPreco(sabor.preco) + '</span>';
+          btn.addEventListener('click', function() {
+            selecionarSabor(idx);
+            btn.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
+          });
+          seletor.appendChild(btn);
+        });
+
+        // Configura palco
+        function getImgAtiva() { return imagemAtiva === 'a' ? imgA : imgB; }
+        function getImgInativa() { return imagemAtiva === 'a' ? imgB : imgA; }
+
+        function definirImagem(imgEl, sabor) {
+          imgEl.setAttribute('src', sabor.img);
+          imgEl.setAttribute('alt', produto.nome + ' sabor ' + sabor.nome);
+          imgEl.setAttribute('width', sabor.w);
+          imgEl.setAttribute('height', sabor.h);
+        }
+
+        function atualizarContador() {
+          contador.textContent = (saborAtualIdx + 1) + '/' + produto.sabores.length;
+        }
+
+        function atualizarDots() {
+          const dots = $$('.dot-palco', dotsContainer);
+          dots.forEach(function(dot, idx) {
+            dot.classList.toggle('ativo', idx === saborAtualIdx);
+          });
+        }
+
+        function atualizarSeletor() {
+          const botoes = $$('.opcao-sabor', seletor);
+          botoes.forEach(function(btn, idx) {
+            const selecionado = idx === saborAtualIdx;
+            btn.classList.toggle('selecionado', selecionado);
+            btn.setAttribute('aria-pressed', selecionado ? 'true' : 'false');
+          });
+        }
+
+        function atualizarEtiquetaLabel(sabor, comTransicao) {
+          if (comTransicao) {
+            etiqueta.classList.add('saindo-label');
+            setTimeout(function() {
+              etiqueta.textContent = sabor.nome;
+              etiqueta.classList.remove('saindo-label');
+            }, 150);
+          } else {
+            etiqueta.textContent = sabor.nome;
+          }
+        }
+
+        function animarPreco(novoPreco, callback) {
+          const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduzido) {
+            precoEl.textContent = formatPreco(novoPreco);
+            if (callback) callback();
+            return;
+          }
+          const textoAtual = precoEl.textContent.replace('R$ ', '').replace(',', '.');
+          const atual = parseFloat(textoAtual) || 0;
+          const alvo = novoPreco;
+          const duracao = 350;
+          const inicio = performance.now();
+          function ease(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          }
+          function frame(agora) {
+            const decorrido = agora - inicio;
+            const progresso = Math.min(decorrido / duracao, 1);
+            const valorAtual = atual + (alvo - atual) * ease(progresso);
+            precoEl.textContent = formatPreco(valorAtual);
+            if (progresso < 1) {
+              requestAnimationFrame(frame);
+            } else {
+              precoEl.textContent = formatPreco(alvo);
+              if (callback) callback();
+            }
+          }
+          requestAnimationFrame(frame);
+        }
+
+        // Troca a foto: a nova entra por um lado e a antiga sai pelo oposto
+        function trocarImagem(idx, direcao) {
+          animacaoEmAndamento = true;
+          const atual = getImgAtiva();
+          const nova = getImgInativa();
+          definirImagem(nova, produto.sabores[idx]);
+
+          function animar() {
+            nova.style.transition = 'none';
+            nova.style.zIndex = 2;
+            atual.style.zIndex = 1;
+            nova.style.opacity = '0';
+            nova.style.transform = 'translateX(' + (8 * direcao) + '%) scale(.96)';
+            nova.style.filter = 'blur(6px)';
+            void nova.offsetWidth;
+            nova.style.transition = '';
+            requestAnimationFrame(function() {
+              nova.style.opacity = '1';
+              nova.style.transform = 'none';
+              nova.style.filter = 'none';
+              atual.style.opacity = '0';
+              atual.style.transform = 'translateX(' + (-8 * direcao) + '%) scale(.96)';
+              atual.style.filter = 'blur(6px)';
+            });
+
+            let finalizado = false;
+            setTimeout(function() {
+              if (finalizado) return;
+              finalizado = true;
+              atual.removeAttribute('src');
+              atual.alt = '';
+              atual.style.opacity = '';
+              atual.style.transform = '';
+              atual.style.filter = '';
+              imagemAtiva = imagemAtiva === 'a' ? 'b' : 'a';
+              animacaoEmAndamento = false;
+              // Executa só o último sabor pedido durante a animação
+              if (pedidoPendente !== null) {
+                const p = pedidoPendente;
+                pedidoPendente = null;
+                selecionarSabor(p);
+              }
+            }, 560);
+          }
+
+          if (nova.complete && nova.naturalWidth > 0) {
+            animar();
+          } else {
+            nova.addEventListener('load', animar, { once: true });
+            nova.addEventListener('error', animar, { once: true });
+          }
+        }
+
+        function selecionarSabor(idx) {
+          if (animacaoEmAndamento) {
+            pedidoPendente = idx;
+            return;
+          }
+          if (idx === saborAtualIdx) return;
+          const saborNovo = produto.sabores[idx];
+          const direcao = idx > saborAtualIdx ? 1 : -1;
+          saborAtualIdx = idx;
+          atualizarSeletor();
+          atualizarDots();
+          atualizarContador();
+          atualizarEtiquetaLabel(saborNovo, true);
+          animarPreco(saborNovo.preco);
+          trocarImagem(idx, direcao);
+        }
+
+        // Swipe no palco
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchAtivo = false;
+
+        palco.addEventListener('touchstart', function(e) {
+          const toque = e.touches[0];
+          touchStartX = toque.clientX;
+          touchStartY = toque.clientY;
+          touchAtivo = true;
+        }, { passive: true });
+
+        palco.addEventListener('touchend', function(e) {
+          if (!touchAtivo) return;
+          touchAtivo = false;
+          const toque = e.changedTouches[0];
+          const dx = toque.clientX - touchStartX;
+          const dy = toque.clientY - touchStartY;
+          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) >= 40) {
+            const total = produto.sabores.length;
+            if (dx < 0) {
+              // swipe esquerda → próximo
+              selecionarSabor((saborAtualIdx + 1) % total);
+            } else {
+              // swipe direita → anterior
+              selecionarSabor((saborAtualIdx - 1 + total) % total);
+            }
+          }
+        }, { passive: true });
+
+        // Teclado no palco
+        palco.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            const total = produto.sabores.length;
+            selecionarSabor((saborAtualIdx + 1) % total);
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const total = produto.sabores.length;
+            selecionarSabor((saborAtualIdx - 1 + total) % total);
+          }
+        });
+
+        // Stepper
+        function atualizarQuantidade() {
+          quantidadeEl.textContent = quantidade;
+        }
+
+        botaoMenos.addEventListener('click', function() {
+          if (quantidade > 1) {
+            quantidade--;
+            atualizarQuantidade();
+          }
+        });
+
+        botaoMais.addEventListener('click', function() {
+          if (quantidade < 20) {
+            quantidade++;
+            atualizarQuantidade();
+          }
+        });
+
+        // Adicionar ao pedido
+        botaoAdicionar.addEventListener('click', function() {
+          adicionarAoCarrinho(produto, saborAtualIdx, quantidade, secaoProduto);
+          quantidade = 1;
+          atualizarQuantidade();
+
+          // Efeito no botão
+          botaoAdicionar.classList.add('adicionado');
+          const textoBotao = $('.texto-botao', botaoAdicionar);
+          const iconeBotao = $('.icone-botao', botaoAdicionar);
+          textoBotao.classList.add('trocando');
+          setTimeout(function() {
+            iconeBotao.innerHTML = ICONES.check;
+            textoBotao.textContent = 'Adicionado';
+            textoBotao.classList.remove('trocando');
+          }, 150);
+
+          if (timerAdicionado) clearTimeout(timerAdicionado);
+          timerAdicionado = setTimeout(function() {
+            botaoAdicionar.classList.remove('adicionado');
+            iconeBotao.innerHTML = '';
+            textoBotao.textContent = 'Adicionar ao pedido';
+            timerAdicionado = null;
+          }, 1400);
+
+          // Voar para o pedido
+          voarParaPedido(produto, saborAtualIdx, secaoProduto);
+        });
+
+        // Inicializa a primeira imagem
+        definirImagem(imgA, produto.sabores[0]);
+        imgA.style.opacity = '1';
+        imgB.style.opacity = '0';
+        imgB.removeAttribute('src');
+        imgB.removeAttribute('alt');
+        imagemAtiva = 'a';
+        atualizarContador();
+      }
+
+      function adicionarAoCarrinho(produto, saborIdx, quantidade, secaoProduto) {
+        const sabor = produto.sabores[saborIdx];
+        const itemExistente = pedido.find(function(item) {
+          return item.produtoId === produto.id && item.saborId === sabor.id;
+        });
+        if (itemExistente) {
+          itemExistente.qtd = Math.min(itemExistente.qtd + quantidade, 20);
+        } else {
+          pedido.push({ produtoId: produto.id, saborId: sabor.id, qtd: Math.min(quantidade, 20) });
+        }
+        persistirPedido();
+        atualizarBarraPedido();
+        animarPulseBarra();
+      }
+
+      function voarParaPedido(produto, saborIdx, secaoProduto) {
+        const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduzido) return;
+        const sabor = produto.sabores[saborIdx];
+        const palco = $('.palco', secaoProduto);
+        const rectPalco = palco.getBoundingClientRect();
+
+        const clone = document.createElement('img');
+        clone.src = sabor.img;
+        clone.alt = '';
+        clone.className = 'voando-clone';
+        clone.style.cssText = '' +
+          'position: fixed;' +
+          'width: 56px;' +
+          'height: 56px;' +
+          'border-radius: 14px;' +
+          'background: #FFFFFF;' +
+          'object-fit: contain;' +
+          'padding: 4px;' +
+          'box-shadow: 0 8px 24px rgba(0,0,0,.25);' +
+          'z-index: 80;' +
+          'pointer-events: none;' +
+          'will-change: transform, opacity;' +
+          'left: ' + (rectPalco.left + rectPalco.width / 2 - 28) + 'px;' +
+          'top: ' + (rectPalco.top + rectPalco.height / 2 - 28) + 'px;';
+        document.body.appendChild(clone);
+
+        const barraVisivel = barraPedido.classList.contains('visivel');
+        let alvoX, alvoY;
+        if (barraVisivel) {
+          const rectBarra = barraPedido.getBoundingClientRect();
+          alvoX = rectBarra.left + rectBarra.width / 2 - 28;
+          alvoY = rectBarra.top + rectBarra.height / 2 - 28;
+        } else {
+          alvoX = window.innerWidth / 2 - 28;
+          alvoY = window.innerHeight - 80;
+        }
+
+        const inicioX = parseFloat(clone.style.left);
+        const inicioY = parseFloat(clone.style.top);
+        const dx = alvoX - inicioX;
+        const dy = alvoY - inicioY;
+        const duracao = 700;
+        const inicio = performance.now();
+
+        function easeVoo(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function frame(agora) {
+          const decorrido = agora - inicio;
+          const progresso = Math.min(decorrido / duracao, 1);
+          const e = easeVoo(progresso);
+          clone.style.transform = 'translate(' + (dx * e) + 'px, ' + (dy * e) + 'px) scale(' + (1 - 0.6 * e) + ')';
+          clone.style.opacity = 1 - progresso * 0.7;
+          if (progresso < 1) {
+            requestAnimationFrame(frame);
+          } else {
+            clone.style.opacity = '0';
+            setTimeout(function() {
+              clone.remove();
+            }, 50);
+          }
+        }
+        requestAnimationFrame(frame);
+
+        setTimeout(function() {
+          clone.remove();
+        }, duracao + 100);
+      }
+
+      function atualizarBarraPedido() {
+        const totalItens = pedido.reduce(function(acc, item) { return acc + item.qtd; }, 0);
+        const totalPreco = pedido.reduce(function(acc, item) {
+          const sabor = obterSabor(item.produtoId, item.saborId);
+          return acc + (sabor ? sabor.preco * item.qtd : 0);
+        }, 0);
+        barraItens.textContent = totalItens + (totalItens === 1 ? ' item' : ' itens');
+        barraTotal.textContent = formatPreco(totalPreco);
+        const temItens = totalItens > 0;
+        barraPedido.classList.toggle('visivel', temItens);
+        if (temItens) {
+          barraPedido.setAttribute('aria-hidden', 'false');
+        } else {
+          barraPedido.setAttribute('aria-hidden', 'true');
+        }
+      }
+
+      function animarPulseBarra() {
+        barraPedido.classList.remove('pulse');
+        void barraPedido.offsetWidth;
+        barraPedido.classList.add('pulse');
+        setTimeout(function() {
+          barraPedido.classList.remove('pulse');
+        }, 500);
+      }
+
+      /* ============ PAINEL DO PEDIDO ============ */
+      function abrirPainel() {
+        painelAberto = true;
+        scrollYAnterior = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = -scrollYAnterior + 'px';
+        document.body.style.width = '100%';
+        overlayPedido.classList.add('visivel');
+        painelPedido.classList.add('aberto');
+        setTimeout(function() {
+          tituloPainel.focus({ preventScroll: true });
+        }, 100);
+        atualizarPainelPedido();
+        preencherFormularioPainel();
+      }
+
+      function fecharPainel() {
+        if (!painelAberto) return;
+        painelAberto = false;
+        overlayPedido.classList.remove('visivel');
+        painelPedido.classList.remove('aberto');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        // Restaura a posição sem a rolagem suave
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, scrollYAnterior);
+        requestAnimationFrame(function() {
+          document.documentElement.style.scrollBehavior = '';
+        });
+        scrollYAnterior = 0;
+      }
+
+      overlayPedido.addEventListener('click', function() {
+        fecharPainel();
+      });
+
+      botaoFecharPainel.addEventListener('click', function() {
+        fecharPainel();
+      });
+
+      botaoVerPedido.addEventListener('click', function() {
+        abrirPainel();
+      });
+
+      // Fechar com Esc
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && painelAberto) {
+          fecharPainel();
+        }
+      });
+
+      // Drag para fechar no mobile (alça)
+      let dragInicioY = 0;
+      let dragAtivo = false;
+      let dragPainelOffset = 0;
+
+      alcaPainel.addEventListener('touchstart', function(e) {
+        dragInicioY = e.touches[0].clientY;
+        dragAtivo = true;
+        dragPainelOffset = 0;
+        painelPedido.style.transition = 'none';
+      }, { passive: true });
+
+      alcaPainel.addEventListener('touchmove', function(e) {
+        if (!dragAtivo) return;
+        const dy = e.touches[0].clientY - dragInicioY;
+        if (dy > 0) {
+          dragPainelOffset = dy;
+          painelPedido.style.transform = 'translateY(' + dy + 'px)';
+        }
+      }, { passive: true });
+
+      alcaPainel.addEventListener('touchend', function(e) {
+        if (!dragAtivo) return;
+        dragAtivo = false;
+        painelPedido.style.transition = '';
+        painelPedido.style.transform = '';
+        if (dragPainelOffset > 80) {
+          fecharPainel();
+        } else {
+          painelPedido.classList.add('aberto');
+          void painelPedido.offsetWidth;
+          painelPedido.classList.remove('aberto');
+          painelPedido.classList.add('aberto');
+        }
+        dragPainelOffset = 0;
+      }, { passive: true });
+
+      // Também no cabeçalho (título e X) para mobile
+      const cabecalhoPainel = $('.cabecalho-painel');
+      cabecalhoPainel.addEventListener('touchstart', function(e) {
+        if (window.innerWidth >= 768) return;
+        dragInicioY = e.touches[0].clientY;
+        dragAtivo = true;
+        dragPainelOffset = 0;
+        painelPedido.style.transition = 'none';
+      }, { passive: true });
+
+      cabecalhoPainel.addEventListener('touchmove', function(e) {
+        if (!dragAtivo || window.innerWidth >= 768) return;
+        const dy = e.touches[0].clientY - dragInicioY;
+        if (dy > 0) {
+          dragPainelOffset = dy;
+          painelPedido.style.transform = 'translateY(' + dy + 'px)';
+        }
+      }, { passive: true });
+
+      cabecalhoPainel.addEventListener('touchend', function(e) {
+        if (!dragAtivo || window.innerWidth >= 768) return;
+        dragAtivo = false;
+        painelPedido.style.transition = '';
+        painelPedido.style.transform = '';
+        if (dragPainelOffset > 80) {
+          fecharPainel();
+        } else {
+          painelPedido.classList.add('aberto');
+          void painelPedido.offsetWidth;
+          painelPedido.classList.remove('aberto');
+          painelPedido.classList.add('aberto');
+        }
+        dragPainelOffset = 0;
+      }, { passive: true });
+
+      function atualizarPainelPedido() {
+        const totalItens = pedido.reduce(function(acc, item) { return acc + item.qtd; }, 0);
+        const temItens = totalItens > 0;
+        estadoVazioPainel.style.display = temItens ? 'none' : 'block';
+        itensPedido.style.display = temItens ? 'block' : 'none';
+        totaisPedido.style.display = temItens ? 'block' : 'none';
+        formPedido.style.display = temItens ? 'block' : 'none';
+        botaoEnviarWhatsapp.disabled = !temItens;
+        renderizarItensPedido();
+        renderizarTotais();
+      }
+
+      function renderizarItensPedido() {
+        itensPedido.innerHTML = '';
+        pedido.forEach(function(item, idx) {
+          const produto = obterProduto(item.produtoId);
+          const sabor = obterSabor(item.produtoId, item.saborId);
+          if (!produto || !sabor) return;
+          const totalLinha = sabor.preco * item.qtd;
+          const linha = document.createElement('div');
+          linha.className = 'item-pedido';
+          linha.dataset.indice = idx;
+          linha.innerHTML = '' +
+            '<img class="item-pedido-img" src="' + sabor.img + '" alt="' + produto.nome + ' sabor ' + sabor.nome + '" width="56" height="56" loading="lazy">' +
+            '<div class="item-pedido-info">' +
+              '<p class="item-pedido-produto"></p>' +
+              '<p class="item-pedido-sabor"></p>' +
+              '<div class="item-pedido-controles">' +
+                '<div class="stepper-compacto">' +
+                  '<button class="botao-stepper botao-menos-item" aria-label="Diminuir quantidade de ' + produto.nome + '"></button>' +
+                  '<span class="quantidade-stepper">' + item.qtd + '</span>' +
+                  '<button class="botao-stepper botao-mais-item" aria-label="Aumentar quantidade de ' + produto.nome + '"></button>' +
+                '</div>' +
+                '<button class="botao-remover-item" aria-label="Remover ' + produto.nome + ' do pedido">Remover</button>' +
+              '</div>' +
+            '</div>' +
+            '<span class="item-pedido-preco"></span>';
+
+          // Preenche com textContent (seguro)
+          linha.querySelector('.item-pedido-produto').textContent = produto.nome;
+          linha.querySelector('.item-pedido-sabor').textContent = sabor.nome;
+          linha.querySelector('.item-pedido-preco').textContent = formatPreco(totalLinha);
+          linha.querySelector('.botao-menos-item').innerHTML = ICONES.menos;
+          linha.querySelector('.botao-mais-item').innerHTML = ICONES.mais;
+
+          // Eventos
+          linha.querySelector('.botao-menos-item').addEventListener('click', function() {
+            alterarQtdItem(idx, -1);
+          });
+          linha.querySelector('.botao-mais-item').addEventListener('click', function() {
+            alterarQtdItem(idx, 1);
+          });
+          linha.querySelector('.botao-remover-item').addEventListener('click', function() {
+            removerItemPedido(idx, linha);
+          });
+
+          itensPedido.appendChild(linha);
+        });
+      }
+
+      function alterarQtdItem(idx, delta) {
+        const item = pedido[idx];
+        if (!item) return;
+        item.qtd = Math.max(1, Math.min(20, item.qtd + delta));
+        persistirPedido();
+        atualizarBarraPedido();
+        atualizarPainelPedido();
+      }
+
+      function removerItemPedido(idx, linha) {
+        linha.style.height = linha.offsetHeight + 'px';
+        void linha.offsetHeight;
+        linha.style.transition = 'height .25s, opacity .25s, padding .25s';
+        linha.style.height = '0';
+        linha.style.opacity = '0';
+        linha.style.paddingTop = '0';
+        linha.style.paddingBottom = '0';
+        linha.style.overflow = 'hidden';
+        setTimeout(function() {
+          pedido.splice(idx, 1);
+          persistirPedido();
+          atualizarBarraPedido();
+          atualizarPainelPedido();
+        }, 250);
+      }
+
+      function renderizarTotais() {
+        const subtotal = pedido.reduce(function(acc, item) {
+          const sabor = obterSabor(item.produtoId, item.saborId);
+          return acc + (sabor ? sabor.preco * item.qtd : 0);
+        }, 0);
+        totaisPedido.innerHTML = '' +
+          '<div class="linha-total">' +
+            '<span>Subtotal</span>' +
+            '<span>' + formatPreco(subtotal) + '</span>' +
+          '</div>' +
+          '<div class="linha-total valor-grande">' +
+            '<span>Total</span>' +
+            '<span>' + formatPreco(subtotal) + '</span>' +
+          '</div>';
+      }
+
+      function preencherFormularioPainel() {
+        if (dadosForm.nome) campoNome.value = dadosForm.nome;
+        if (dadosForm.data) campoData.value = dadosForm.data;
+        if (dadosForm.endereco) campoEndereco.value = dadosForm.endereco;
+        if (dadosForm.observacoes) campoObservacoes.value = dadosForm.observacoes;
+        if (dadosForm.recebimento === 'entrega') {
+          ativarRecebimento('entrega', false);
+        } else {
+          ativarRecebimento('retirada', false);
+        }
+        limparErros();
+      }
+
+      function ativarRecebimento(valor, atualizarDados) {
+        const entrega = valor === 'entrega';
+        btnRetirada.classList.toggle('ativo', !entrega);
+        btnRetirada.setAttribute('aria-checked', !entrega ? 'true' : 'false');
+        btnEntrega.classList.toggle('ativo', entrega);
+        btnEntrega.setAttribute('aria-checked', entrega ? 'true' : 'false');
+        controleRecebimento.classList.toggle('entrega', entrega);
+        campoEnderecoCondicional.classList.toggle('aberto', entrega);
+        if (atualizarDados) {
+          dadosForm.recebimento = valor;
+          persistirDados();
+        }
+      }
+
+      btnRetirada.addEventListener('click', function() {
+        ativarRecebimento('retirada', true);
+      });
+
+      btnEntrega.addEventListener('click', function() {
+        ativarRecebimento('entrega', true);
+      });
+
+      // Salvar formulário a cada input
+      [campoNome, campoData, campoEndereco, campoObservacoes].forEach(function(campo) {
+        campo.addEventListener('input', function() {
+          dadosForm.nome = campoNome.value;
+          dadosForm.data = campoData.value;
+          dadosForm.endereco = campoEndereco.value;
+          dadosForm.observacoes = campoObservacoes.value;
+          persistirDados();
+          // Remove erro ao digitar
+          if (campo === campoNome && campo.classList.contains('invalido')) {
+            campo.classList.remove('invalido');
+            erroNome.classList.remove('visivel');
+          }
+          if (campo === campoData && campo.classList.contains('invalido')) {
+            campo.classList.remove('invalido');
+            erroData.classList.remove('visivel');
+          }
+          if (campo === campoEndereco && campo.classList.contains('invalido')) {
+            campo.classList.remove('invalido');
+            erroEndereco.classList.remove('visivel');
+          }
+        });
+      });
+
+      function limparErros() {
+        [campoNome, campoData, campoEndereco, campoObservacoes].forEach(function(campo) {
+          campo.classList.remove('invalido');
+        });
+        [erroNome, erroData, erroEndereco, erroObservacoes].forEach(function(erro) {
+          erro.classList.remove('visivel');
+          erro.textContent = 'Informe este campo.';
+        });
+      }
+
+      function validarFormulario() {
+        limparErros();
+        const recebimento = dadosForm.recebimento || 'retirada';
+        let valido = true;
+        if (!campoNome.value.trim()) {
+          campoNome.classList.add('invalido');
+          erroNome.textContent = 'Informe seu nome.';
+          erroNome.classList.add('visivel');
+          valido = false;
+        }
+        if (!campoData.value) {
+          campoData.classList.add('invalido');
+          erroData.textContent = 'Escolha uma data válida.';
+          erroData.classList.add('visivel');
+          valido = false;
+        } else {
+          const dataMin = hojeLocal();
+          if (campoData.value < dataMin) {
+            campoData.classList.add('invalido');
+            erroData.textContent = 'Escolha uma data futura.';
+            erroData.classList.add('visivel');
+            valido = false;
+          }
+        }
+        if (recebimento === 'entrega' && !campoEndereco.value.trim()) {
+          campoEndereco.classList.add('invalido');
+          erroEndereco.textContent = 'Informe o endereço de entrega.';
+          erroEndereco.classList.add('visivel');
+          valido = false;
+        }
+        if (!valido) {
+          // Foca no primeiro campo inválido
+          const campos = [campoNome, campoData, campoEndereco];
+          for (const campo of campos) {
+            if (campo.classList.contains('invalido')) {
+              campo.scrollIntoView({ block: 'center', behavior: 'smooth' });
+              campo.focus({ preventScroll: true });
+              break;
+            }
+          }
+        }
+        return valido;
+      }
+
+      function gerarMensagemWhatsApp() {
+        const nome = campoNome.value.trim();
+        const dataValor = campoData.value;
+        const recebimento = dadosForm.recebimento || 'retirada';
+        const endereco = campoEndereco.value.trim();
+        const obs = campoObservacoes.value.trim();
+
+        const dataArr = dataValor.split('-');
+        const dataFormatada = dataArr[2] + '/' + dataArr[1] + '/' + dataArr[0];
+
+        let linhas = [];
+        linhas.push('🎄 *Pedido de Natal — Brow Muu*');
+        linhas.push('');
+        linhas.push('👤 *Nome:* ' + nome);
+        linhas.push('📅 *Data:* ' + dataFormatada);
+        if (recebimento === 'entrega') {
+          linhas.push('🚗 *Entrega*');
+          linhas.push('📍 *Endereço:* ' + endereco);
+        } else {
+          linhas.push('🏠 *Retirada*');
+        }
+        linhas.push('');
+        linhas.push('🍫 *Itens:*');
+        pedido.forEach(function(item) {
+          const produto = obterProduto(item.produtoId);
+          const sabor = obterSabor(item.produtoId, item.saborId);
+          if (produto && sabor) {
+            const totalLinha = sabor.preco * item.qtd;
+            linhas.push('• ' + item.qtd + 'x ' + produto.nome + ' — ' + sabor.nome + ': ' + formatPreco(totalLinha));
+          }
+        });
+        const total = pedido.reduce(function(acc, item) {
+          const sabor = obterSabor(item.produtoId, item.saborId);
+          return acc + (sabor ? sabor.preco * item.qtd : 0);
+        }, 0);
+        linhas.push('');
+        linhas.push('💰 *Total:* ' + formatPreco(total));
+        if (obs) {
+          linhas.push('');
+          linhas.push('📝 *Observações:* ' + obs);
+        }
+        return linhas.join('\n');
+      }
+
+      function mostrarToast(mensagem) {
+        toast.textContent = mensagem;
+        toast.classList.add('visivel');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function() {
+          toast.classList.remove('visivel');
+          toastTimer = null;
+        }, 3500);
+      }
+
+      botaoEnviarWhatsapp.addEventListener('click', function() {
+        if (pedido.length === 0) return;
+        if (!validarFormulario()) return;
+        const mensagem = gerarMensagemWhatsApp();
+        const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensagem);
+        const win = window.open(url, '_blank');
+        if (!win) {
+          window.location.href = url;
+        }
+        mostrarToast('Pedido pronto! Finalize o envio no WhatsApp.');
+        // Não limpa o pedido automaticamente
+      });
+
+      // Limpar pedido com dupla confirmação
+      let timerLimparPedido = null;
+      botaoLimparPedido.addEventListener('click', function() {
+        const textoOriginal = 'Limpar pedido';
+        if (botaoLimparPedido.textContent === textoOriginal) {
+          botaoLimparPedido.textContent = 'Toque de novo para confirmar';
+          if (timerLimparPedido) clearTimeout(timerLimparPedido);
+          timerLimparPedido = setTimeout(function() {
+            botaoLimparPedido.textContent = textoOriginal;
+            timerLimparPedido = null;
+          }, 3000);
+        } else {
+          pedido = [];
+          persistirPedido();
+          atualizarBarraPedido();
+          atualizarPainelPedido();
+          botaoLimparPedido.textContent = textoOriginal;
+          if (timerLimparPedido) {
+            clearTimeout(timerLimparPedido);
+            timerLimparPedido = null;
+          }
+        }
+      });
+
+      /* ============ REVEAL COM INTERSECTIONOBSERVER ============ */
+      function configurarReveal() {
+        const elementos = $$('[data-revelar]');
+        if (!('IntersectionObserver' in window)) {
+          elementos.forEach(function(el) { el.classList.add('visivel'); });
+          return;
+        }
+        const observador = new IntersectionObserver(function(entradas) {
+          entradas.forEach(function(entrada) {
+            if (entrada.isIntersecting) {
+              entrada.target.classList.add('visivel');
+              observador.unobserve(entrada.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        elementos.forEach(function(el) {
+          observador.observe(el);
+        });
+      }
+
+      /* ============ INICIALIZAÇÃO ============ */
+      function iniciar() {
+        renderizarCardapio();
+        configurarReveal();
+        atualizarBarraPedido();
+        // Aplica o estado do recebimento salvo
+        const recebimentoSalvo = dadosForm.recebimento || 'retirada';
+        ativarRecebimento(recebimentoSalvo, false);
+        // Se houver pedido salvo, a barra já estará visível
+      }
+
+      iniciar();
+
+      // Garante que a função de revelar também funcione para elementos já visíveis
+      window.addEventListener('load', function() {
+        configurarReveal();
+      });
+
+    })();
+  </script>
+</body>
+</html>
